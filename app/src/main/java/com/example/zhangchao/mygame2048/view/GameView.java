@@ -71,6 +71,7 @@ public class GameView extends GridLayout implements View.OnTouchListener {
         WindowManager wm= (WindowManager) getContext().getSystemService(
                 Context.WINDOW_SERVICE);
         Display display=wm.getDefaultDisplay();
+        display.getMetrics(metrics);
         Config.mItemSize=metrics.widthPixels/Config.mGameLines;
         initGameView(Config.mItemSize);
     }
@@ -129,7 +130,7 @@ public class GameView extends GridLayout implements View.OnTouchListener {
                 checkCompleted();
                 break;
         }
-        return false;
+        return true;
     }
 
     private void saveHistoryMatrix() {
